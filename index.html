@@ -3,87 +3,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hosmani Akash | Portfolio</title>
+  <title>Hosmani Akash | AI & Software Developer</title>
   <style>
+    :root {
+      --bg: #080b16;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #8b5cf6;
+      --accent2: #06b6d4;
+      --line: rgba(255, 255, 255, 0.14);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Inter, Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 30%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.25), transparent 30%),
+        var(--bg);
+      min-height: 100vh;
     }
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 11, 22, 0.75);
+      border-bottom: 1px solid var(--line);
     }
 
-    header h1 {
-      font-size: 42px;
-      color: #ffffff;
-    }
-
-    header p {
-      font-size: 18px;
-      color: #cbd5e1;
-      margin-top: 10px;
-    }
-
-    .links {
-      margin-top: 20px;
-    }
-
-    .links a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 18px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      transition: 0.3s;
-    }
-
-    .links a:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-    }
-
-    section {
-      max-width: 1000px;
+    .nav-inner {
+      max-width: 1100px;
       margin: auto;
-      padding: 45px 20px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    h2 {
-      color: #60a5fa;
-      margin-bottom: 20px;
-      font-size: 28px;
-      border-bottom: 2px solid #334155;
-      padding-bottom: 8px;
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 22px;
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 20px 60px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(255,255,255,0.06);
       margin-bottom: 18px;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      font-size: 14px;
     }
 
-    .card h3 {
-      color: #ffffff;
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 18px;
+      margin-bottom: 26px;
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(6,182,212,0.2);
+      transition: 0.25s;
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .avatar {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+
+    .profile-card h2 {
+      text-align: center;
       margin-bottom: 8px;
     }
 
-    .card p, .card li {
-      color: #cbd5e1;
+    .profile-card p {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .stats {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stat strong {
+      font-size: 24px;
+      color: white;
+      display: block;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 42px 20px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(16px);
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(6,182,212,0.5);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p, li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul {
+      margin-left: 18px;
+      margin-top: 10px;
     }
 
     .skills {
@@ -93,171 +243,202 @@
     }
 
     .skills span {
-      background: #334155;
-      padding: 9px 14px;
-      border-radius: 20px;
-      color: #dbeafe;
-      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      color: #e0f2fe;
+      transition: 0.2s;
     }
 
-    ul {
-      margin-left: 20px;
-      margin-top: 8px;
+    .skills span:hover {
+      background: rgba(6,182,212,0.18);
+      transform: translateY(-2px);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-link {
+      color: #67e8f9;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 12px;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      background: #020617;
+      padding: 30px 20px;
       color: #94a3b8;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 32px;
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
       }
-      header p {
-        font-size: 16px;
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Hosmani Akash</h1>
-    <p>Artificial Intelligence and Machine Learning Undergraduate</p>
-    <p>Software Development | AI/ML | Full Stack | Flutter</p>
-
-    <div class="links">
-      <a href="mailto:akashhosmani269@gmail.com">Email</a>
-      <a href="https://github.com/HAkash-glitch" target="_blank">GitHub</a>
-      <a href="https://leetcode.com/hosakash2005" target="_blank">LeetCode</a>
-      <a href="#" target="_blank">LinkedIn</a>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Akash.dev</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <section>
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I am an Artificial Intelligence and Machine Learning undergraduate at Geethanjali College of Engineering and Technology.
-        I have experience in Java, Python, Flutter, Full Stack Development, and AI-powered applications. I enjoy building intelligent
-        software systems, mobile applications, and scalable web solutions.
-      </p>
+<div class="hero">
+  <div>
+    <span class="badge">Available for Internships</span>
+    <h1>Hi, I'm <span class="gradient">Hosmani Akash</span></h1>
+    <p>
+      AIML undergraduate building AI-powered apps, Flutter mobile assistants, and full-stack web systems.
+      I focus on practical software, clean interfaces, and real-world problem solving.
+    </p>
+    <div class="btns">
+      <a class="btn" href="mailto:akashhosmani269@gmail.com">Contact Me</a>
+      <a class="btn secondary" href="https://github.com/HAkash-glitch" target="_blank">GitHub</a>
+      <a class="btn secondary" href="https://leetcode.com/hosakash2005" target="_blank">LeetCode</a>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>Education</h2>
-    <div class="card">
-      <h3>B.Tech in Artificial Intelligence and Machine Learning</h3>
-      <p>Geethanjali College of Engineering and Technology</p>
-      <p>CGPA: 6.7 | 2023 - 2027</p>
+  <div class="profile-card">
+    <div class="avatar">HA</div>
+    <h2>AI & Software Developer</h2>
+    <p>Java • Python • Flutter • Full Stack • AI/ML</p>
+    <div class="stats">
+      <div class="stat"><strong>3</strong>Projects</div>
+      <div class="stat"><strong>50+</strong>DSA Problems</div>
+      <div class="stat"><strong>1</strong>Internship</div>
+      <div class="stat"><strong>4</strong>Languages</div>
     </div>
-    <div class="card">
-      <p><strong>Intermediate:</strong> 80.9%</p>
-      <p><strong>SSC:</strong> 99%</p>
-    </div>
-  </section>
+  </div>
+</div>
 
-  <section>
-    <h2>Technical Skills</h2>
-    <div class="skills">
-      <span>Java</span>
-      <span>Python</span>
-      <span>JavaScript</span>
-      <span>SQL</span>
-      <span>Flutter</span>
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>Bootstrap</span>
-      <span>Vue.js</span>
-      <span>Node.js</span>
-      <span>Flask</span>
-      <span>PostgreSQL</span>
-      <span>Machine Learning</span>
-      <span>DSA</span>
-      <span>OOP</span>
-      <span>DBMS</span>
-      <span>Git</span>
-      <span>GitHub</span>
-      <span>Android Studio</span>
-      <span>Postman</span>
-    </div>
-  </section>
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <div class="card">
+    <p>
+      I am pursuing B.Tech in Artificial Intelligence and Machine Learning at Geethanjali College of Engineering and Technology.
+      I have hands-on experience with Java, Python, Flutter, Flask, Streamlit, Vue.js, Node.js, and PostgreSQL.
+      My goal is to become a strong software engineer with practical AI and full-stack development skills.
+    </p>
+  </div>
+</section>
 
-  <section>
-    <h2>Projects</h2>
+<section id="skills">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills">
+    <span>Java</span><span>Python</span><span>JavaScript</span><span>SQL</span>
+    <span>DSA</span><span>OOP</span><span>DBMS</span><span>Machine Learning</span>
+    <span>Flutter</span><span>Flask</span><span>Streamlit</span><span>OpenRouter API</span>
+    <span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Vue.js</span>
+    <span>Node.js</span><span>PostgreSQL</span><span>Git</span><span>GitHub</span>
+    <span>VS Code</span><span>Android Studio</span><span>Postman</span>
+  </div>
+</section>
 
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid">
     <div class="card">
       <h3>Gamma AI Phone Assistant</h3>
-      <p><strong>Tech Stack:</strong> Flutter, Python, Flask, Speech-to-Text, Text-to-Speech</p>
+      <p><strong>Flutter, Python, Flask</strong></p>
       <ul>
-        <li>Developed a voice-controlled Android assistant with speech-to-text and text-to-speech capabilities.</li>
-        <li>Built a Flask backend to process user requests and generate AI-powered responses.</li>
-        <li>Implemented app-launching commands and device utility controls.</li>
+        <li>Built a voice-controlled Android assistant.</li>
+        <li>Integrated speech-to-text and text-to-speech.</li>
+        <li>Added app launching and utility commands.</li>
       </ul>
     </div>
 
     <div class="card">
       <h3>AI Study Assistant</h3>
-      <p><strong>Tech Stack:</strong> Python, Streamlit, OpenRouter API</p>
+      <p><strong>Python, Streamlit, OpenRouter API</strong></p>
       <ul>
-        <li>Built an AI-powered learning platform for topic explanation and self-study.</li>
-        <li>Generated 10-question AI-powered quizzes with automatic evaluation and score analysis.</li>
-        <li>Tracked user scores and identified weak topics for personalized learning.</li>
+        <li>Created AI topic explanations and quiz generation.</li>
+        <li>Added 10-question quizzes with evaluation.</li>
+        <li>Tracked scores and weak topics.</li>
       </ul>
-      <p><a href="https://github.com/HAkash-glitch/ai-study-assistant" target="_blank" style="color:#60a5fa;">View Project</a></p>
+      <a class="project-link" href="https://github.com/HAkash-glitch/ai-study-assistant" target="_blank">View on GitHub →</a>
     </div>
 
     <div class="card">
-      <h3>Online Library Management System</h3>
-      <p><strong>Tech Stack:</strong> Vue.js, Node.js, PostgreSQL, Bootstrap</p>
+      <h3>Online Library System</h3>
+      <p><strong>Vue.js, Node.js, PostgreSQL</strong></p>
       <ul>
-        <li>Developed a full-stack web application for library operations management.</li>
-        <li>Implemented catalog search, issue-return tracking, and user management.</li>
-        <li>Integrated PostgreSQL for secure and efficient data storage.</li>
+        <li>Built a full-stack library management app.</li>
+        <li>Implemented search, issue-return tracking.</li>
+        <li>Used PostgreSQL for structured records.</li>
       </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>Experience</h2>
+<section id="experience">
+  <h2 class="section-title">Experience & Education</h2>
+  <div class="timeline">
     <div class="card">
       <h3>Full Stack Web Development Intern</h3>
       <p><strong>Edzeeta Private Limited</strong> | May 2025 - July 2025</p>
       <ul>
-        <li>Worked on frontend, backend, and database integration concepts.</li>
-        <li>Built responsive web interfaces and gained practical software engineering experience.</li>
+        <li>Worked on frontend, backend, and database integration.</li>
+        <li>Built responsive web interfaces and learned practical software workflows.</li>
       </ul>
     </div>
-  </section>
 
-  <section>
-    <h2>Achievements & Activities</h2>
     <div class="card">
-      <ul>
-        <li>Solved 50+ DSA problems on LeetCode: hosakash2005.</li>
-        <li>Active member of National Service Scheme (NSS).</li>
-        <li>Participated in a one-week NSS Special Camp.</li>
-      </ul>
+      <h3>B.Tech in AIML</h3>
+      <p>Geethanjali College of Engineering and Technology | 2023 - 2027</p>
+      <p>CGPA: 6.7</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>Contact</h2>
-    <div class="card">
-      <p><strong>Email:</strong> akashhosmani269@gmail.com</p>
-      <p><strong>Phone:</strong> +91 9014962424</p>
-      <p><strong>Location:</strong> Hyderabad, Telangana</p>
-      <p><strong>Languages:</strong> English, Telugu, Hindi, Kannada</p>
-    </div>
-  </section>
+<section>
+  <h2 class="section-title">Achievements</h2>
+  <div class="card">
+    <ul>
+      <li>Solved 50+ DSA problems on LeetCode.</li>
+      <li>Active member of National Service Scheme (NSS).</li>
+      <li>Participated in a one-week NSS Special Camp.</li>
+      <li>Languages: English, Telugu, Hindi, Kannada.</li>
+    </ul>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2026 Hosmani Akash | Portfolio</p>
-  </footer>
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <div class="card">
+    <p><strong>Email:</strong> <a style="color:#67e8f9" href="mailto:akashhosmani269@gmail.com">akashhosmani269@gmail.com</a></p>
+    <p><strong>Phone:</strong> +91 9014962424</p>
+    <p><strong>Location:</strong> Hyderabad, Telangana</p>
+    <p><strong>GitHub:</strong> <a style="color:#67e8f9" href="https://github.com/HAkash-glitch" target="_blank">github.com/HAkash-glitch</a></p>
+    <p><strong>LeetCode:</strong> <a style="color:#67e8f9" href="https://leetcode.com/hosakash2005" target="_blank">leetcode.com/hosakash2005</a></p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Hosmani Akash. Built with HTML, CSS and JavaScript-ready design.
+</footer>
 
 </body>
 </html>
